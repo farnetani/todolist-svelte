@@ -13,3 +13,21 @@
     margin-bottom: 1rem;
     padding: 1rem;
 }
+
+.search-bar {
+    display: block; /* Faz a barra ocupar a largura total da linha */
+    width: 60%; /* Define a largura para preencher o espaço disponível */
+    padding: 10px 15px; /* Adiciona um padding para tornar a barra mais alta e confortável para digitar */
+    margin-bottom: 20px; /* Adiciona espaço abaixo da barra antes do próximo conteúdo */
+    border: 2px solid #ccc; /* Define uma borda sólida com uma cor cinza clara */
+    border-radius: 5px; /* Arredonda os cantos da barra de pesquisa */
+    font-size: 16px; /* Define o tamanho da fonte para melhor legibilidade */
+    margin: 0 auto; /* Centraliza a barra de pesquisa */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-bar:focus {
+    border-color: #00cc99; /* Muda a cor da borda para uma cor verde quando focado */
+    outline: none; /* Remove o contorno padrão para manter o design limpo */
+}
