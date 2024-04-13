@@ -1,27 +1,19 @@
 <script lang="ts">
     export let list: string[] = []
+    export let onDelete: (index: number) => void // Função para chamar quando uma tarefa deve ser deletada
+
+    import "./TodoItem.css";
+
+    const handleDelete = (index: number) => {
+    onDelete(index);
+  };    
 </script>
 
 <ul class="list">
-    {#each list as item}
-        <li class="list__item">{item}</li>
+    {#each list as task, index}
+        <li class="list__item">
+            {task}
+            <button on:click={() => handleDelete(index)}>Delete</button>
+        </li>
     {/each}    
 </ul>
-
-<style>
-    .list {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    .list__item {
-        background-color: #f9f9f9;
-        border-radius: 10px;
-        color: #333333;
-        font-family: Arial, sans-serif;
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        padding: 1rem;
-    }
-</style>
