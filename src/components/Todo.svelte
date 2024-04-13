@@ -1,12 +1,16 @@
 <script lang="ts">
   import TodoItem from "./TodoItem.svelte";
 
+  import { tasks } from "../store"
+
     let task: string = ''
-    let tasks: string[] = []
+    // let tasks: string[] = []
 
     const addTask = () => {
         if (task) {
-            tasks = [...tasks, task]
+            // tasks = [...tasks, task]
+            // Agora o tasks é um observable, aí muda um pouco a forma de se fazer as coisas
+            tasks.update(() => [...$tasks, task])
             task = ''
         }
     }
@@ -19,7 +23,8 @@
     <button class="form__button" type="submit">Add</button>
 </form>
 
-<TodoItem list={tasks} />
+<!-- Podemos usar o $ para falar para a aplicação fazer um subscription, o $ já faz isso implicitamente, então não precisamos fazer isso manualmente. -->
+<TodoItem list={$tasks} />
 
 <style>
     .form__field {
